@@ -4,13 +4,14 @@ import Home from './pages/Home'
 import Resume from './pages/Resume'
 import Projects from './pages/Projects'
 import NotFound from './pages/NotFound'
-
+import Navbar from './components/layout/Navbar'
 
 const App = () => {
   return (
     <div>
-      <h1>Hello</h1>
+      <Navbar /> 
       <Routes>
+        
         <Route path='/' element ={<Home />} />
         <Route path='/resume' element ={<Resume />} />
         <Route path='/projects' element ={<Projects />} />

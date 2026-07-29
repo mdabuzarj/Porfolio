@@ -1,108 +1,86 @@
 import React from "react";
 import {
-  FaReact,
-  FaNodeJs,
-  FaJava,
-  FaGitAlt,
-  FaGithub,
-  FaHtml5,
-  FaCss3Alt,
-} from "react-icons/fa";
-import {
-  SiTailwindcss,
+  SiReact,
   SiJavascript,
+  SiTailwindcss,
+  SiNodedotjs,
   SiExpress,
   SiMongodb,
-  SiMysql,
   SiFirebase,
-  SiSupabase,
+  SiPostgresql,
+  SiMysql,
+  SiGit,
+  SiGithub,
   SiPostman,
+  SiGooglecloud,
 } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 
 const skills = [
-  {
-    title: "Frontend",
-    tech: [
-      { name: "React", icon: <FaReact /> },
-      { name: "JavaScript", icon: <SiJavascript /> },
-      { name: "HTML", icon: <FaHtml5 /> },
-      { name: "CSS", icon: <FaCss3Alt /> },
-      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
-    ],
-  },
-  {
-    title: "Backend",
-    tech: [
-      { name: "Node.js", icon: <FaNodeJs /> },
-      { name: "Express.js", icon: <SiExpress /> },
-      { name: "Java", icon: <FaJava /> },
-    ],
-  },
-  {
-    title: "Database",
-    tech: [
-      { name: "MongoDB", icon: <SiMongodb /> },
-      { name: "MySQL", icon: <SiMysql /> },
-      { name: "Supabase", icon: <SiSupabase /> },
-    ],
-  },
-  {
-    title: "Tools",
-    tech: [
-      { name: "Git", icon: <FaGitAlt /> },
-      { name: "GitHub", icon: <FaGithub /> },
-      { name: "Firebase", icon: <SiFirebase /> },
-      { name: "Postman", icon: <SiPostman /> },
-    ],
-  },
+  { name: "React", icon: <SiReact /> },
+  { name: "Java", icon: <FaJava /> },
+  { name: "JavaScript", icon: <SiJavascript /> },
+  { name: "Node.js", icon: <SiNodedotjs /> },
+  { name: "Express", icon: <SiExpress /> },
+  { name: "MongoDB", icon: <SiMongodb /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+  { name: "Firebase", icon: <SiFirebase /> },
+  { name: "PostgreSQL", icon: <SiPostgresql /> },
+  { name: "MySQL", icon: <SiMysql /> },
+  { name: "Git", icon: <SiGit /> },
+  { name: "GitHub", icon: <SiGithub /> },
+  { name: "Postman", icon: <SiPostman /> },
+  { name: "Google Cloud", icon: <SiGooglecloud /> },
 ];
 
 const Skills = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen bg-[#09090B] text-white py-24 px-6"
+      className="py-28 bg-[#020617]"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <div className="mb-16">
-          <p className="text-blue-500 uppercase tracking-widest font-semibold">
-            Skills
+        {/* Heading */}
+
+        <div className="text-center mb-16">
+
+          <p className="text-blue-400 uppercase tracking-widest font-semibold">
+            My Skills
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Technologies I work with.
+          <h2 className="text-5xl font-bold text-white mt-4">
+            Tech Stack
           </h2>
+
+          <p className="mt-6 text-zinc-400 max-w-2xl mx-auto leading-8">
+            Technologies and tools I use to design, build,
+            and deploy modern web applications.
+          </p>
+
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Skills */}
 
-          {skills.map((category) => (
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+          {skills.map((skill) => (
+
             <div
-              key={category.title}
-              className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8"
+              key={skill.name}
+              className="group rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md p-6 transition-all duration-300 hover:border-blue-500 hover:-translate-y-2"
             >
-              <h3 className="text-2xl font-semibold mb-8">
-                {category.title}
+
+              <div className="text-5xl text-blue-500 mb-5 group-hover:scale-110 transition">
+                {skill.icon}
+              </div>
+
+              <h3 className="text-xl font-semibold text-white">
+                {skill.name}
               </h3>
 
-              <div className="grid grid-cols-2 gap-6">
-
-                {category.tech.map((item) => (
-                  <div
-                    key={item.name}
-                    className="flex items-center gap-4 bg-zinc-800 rounded-xl p-4 hover:bg-zinc-700 transition"
-                  >
-                    <div className="text-3xl text-blue-500">
-                      {item.icon}
-                    </div>
-
-                    <span>{item.name}</span>
-                  </div>
-                ))}
-
-              </div>
             </div>
+
           ))}
 
         </div>

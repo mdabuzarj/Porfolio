@@ -1,73 +1,100 @@
 import React from "react";
+import { BsCheckCircleFill } from "react-icons/bs";
+
+const focusAreas = [
+  "Full Stack Development",
+  "Java Backend Development",
+  "Cloud Computing",
+  "System Design",
+  "Problem Solving",
+];
 
 const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen bg-[#09090B] text-white py-24 px-6"
+      className="py-28 bg-[#020617]"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
-        <div className="mb-16">
-          <p className="text-blue-500 font-semibold uppercase tracking-widest">
-            About Me
+        <div className="mb-16 text-center">
+
+          <p className="text-blue-400 font-semibold tracking-widest uppercase">
+            Get to know me
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Who I am and what I build.
+          <h2 className="mt-4 text-5xl font-bold text-white">
+            About Me
           </h2>
+
         </div>
 
         {/* Content */}
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left */}
           <div>
-            <p className="text-zinc-300 leading-8 mb-6">
-              I'm Mohammed Abuzar J, a Full Stack Developer passionate about
-              creating scalable and user-friendly web applications using modern
-              technologies like React, Node.js, Java, and SQL.
+
+            <h3 className="text-3xl font-bold text-white mb-6">
+              Passionate about building impactful software.
+            </h3>
+
+            <p className="text-zinc-400 leading-8 mb-6">
+              I'm Mohammed Abuzar J, a Final-year Computer Science Engineering
+              student passionate about creating modern web applications and
+              scalable backend systems. I enjoy solving real-world problems
+              through technology while continuously improving my development
+              skills.
             </p>
 
-            <p className="text-zinc-300 leading-8 mb-6">
-              I enjoy solving real-world problems through technology and
-              continuously improving my development skills by building projects,
-              participating in hackathons, and learning new tools.
+            <p className="text-zinc-400 leading-8 mb-6">
+              Throughout my journey, I've completed internships, participated in
+              national-level hackathons, and led technical initiatives that have
+              strengthened both my technical and teamwork skills.
             </p>
 
-            <p className="text-zinc-300 leading-8">
-              My goal is to become a Software Development Engineer and build
-              products that positively impact people's lives.
+            <p className="text-zinc-400 leading-8">
+              My goal is to become a Software Development Engineer who builds
+              reliable, scalable, and user-friendly products that make a real
+              difference.
             </p>
+
           </div>
 
           {/* Right */}
-          <div className="bg-zinc-900 rounded-2xl p-8 border border-zinc-800">
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md p-8">
 
-            <div className="flex justify-between border-b border-zinc-700 py-4">
-              <span className="text-zinc-400">Name</span>
-              <span>Mohammed Abuzar J</span>
+            <h3 className="text-2xl font-semibold text-white mb-8">
+              Current Focus
+            </h3>
+
+            <div className="space-y-6">
+
+              {focusAreas.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-4"
+                >
+                  <BsCheckCircleFill className="text-blue-500 text-xl" />
+
+                  <p className="text-zinc-300 text-lg">
+                    {item}
+                  </p>
+
+                </div>
+              ))}
+
             </div>
 
-            <div className="flex justify-between border-b border-zinc-700 py-4">
-              <span className="text-zinc-400">Education</span>
-              <span>B.E CSE</span>
-            </div>
+            <div className="mt-10 rounded-2xl border border-blue-500/20 bg-blue-500/10 p-5">
 
-            <div className="flex justify-between border-b border-zinc-700 py-4">
-              <span className="text-zinc-400">CGPA</span>
-              <span>8.3</span>
-            </div>
+              <p className="text-blue-300 leading-7">
+                🚀 Currently looking for Software Development Internship
+                opportunities where I can learn, contribute, and build impactful
+                products.
+              </p>
 
-            <div className="flex justify-between border-b border-zinc-700 py-4">
-              <span className="text-zinc-400">Location</span>
-              <span>Tamil Nadu, India</span>
-            </div>
-
-            <div className="flex justify-between py-4">
-              <span className="text-zinc-400">Graduation</span>
-              <span>2027</span>
             </div>
 
           </div>
