@@ -1,4 +1,5 @@
 import React from "react";
+import SpotlightCard from "../ui/SpotlightCard";
 import {
   BsGithub,
   BsArrowUpRight,
@@ -67,10 +68,11 @@ const Projects = () => {
 
           {projects.map((project) => (
 
-            <div
-              key={project.title}
-              className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md transition duration-300 hover:-translate-y-3 hover:border-blue-500"
-            >
+            <SpotlightCard
+  key={project.title}
+  spotlightColor="rgba(37,99,235,0.35)"
+  className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md transition duration-300 hover:-translate-y-3 hover:border-blue-500"
+>
 
               {/* Image */}
 
@@ -129,7 +131,7 @@ const Projects = () => {
 
               </div>
 
-            </div>
+            </SpotlightCard>
 
           ))}
 

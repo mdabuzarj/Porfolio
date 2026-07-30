@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
 import profile from "../../assets/profile.jpg";
+import Aurora from "../ui/Aurora";
+import BlurText from "../ui/BlurText";
 
 const fadeUp = {
   hidden: {
@@ -22,11 +24,22 @@ const fadeUp = {
 const Hero = () => {
   return (
     <section
-      id="hero"
-      className="relative min-h-screen bg-[#020617] flex items-center overflow-hidden pt-28"
-    >
-      {/* Background Glow */}
-      <div className="absolute left-1/2 top-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-[180px]" />
+  id="hero"
+  className="relative min-h-screen flex items-center overflow-hidden bg-[#020617] pt-28"
+>
+  {/* Aurora Background */}
+  <div className="absolute inset-0 -z-0">
+    <Aurora
+      colorStops={["#2563eb", "#60a5fa", "#1d4ed8"]}
+      blend={0.45}
+      amplitude={1.1}
+      speed={0.8}
+    />
+  </div>
+
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 z-10 bg-[#020617]/40" />
+      
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
 
@@ -213,7 +226,7 @@ const Hero = () => {
             <img
               src={profile}
               alt="Mohammed Abuzar J"
-              cclassName="relative z-10 w-[420px] rounded-3xl border border-zinc-800 shadow-2xl transition-all duration-500 hover:scale-105"
+              className="relative z-10 w-[420px] rounded-3xl border border-zinc-800 shadow-2xl transition-all duration-500 hover:scale-105"
             />
           </motion.div>
 
