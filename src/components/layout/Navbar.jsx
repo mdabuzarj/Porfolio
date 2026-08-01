@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-  HiOutlineMenuAlt3,
-  HiOutlineX,
-} from "react-icons/hi";
+import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 const navLinks = [
@@ -27,91 +24,96 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-4 pt-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between rounded-2xl border border-zinc-800/70 bg-[#0B1120]/80 backdrop-blur-xl px-6 py-4 shadow-lg">
+    <nav className="fixed top-0 left-0 z-50 w-full px-4 pt-4">
 
-          {/* Logo */}
-          <a
-            href="#hero"
-            className="text-2xl font-bold tracking-wider text-white transition duration-300 hover:text-blue-500"
-          >
-            AJ.
-          </a>
+      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-10">
+        {/* Logo */}
+        <a href="#hero">
+          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-2xl font-bold tracking-wider text-transparent">
+            AJ
+          </span>
+        </a>
+
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex items-center gap-2">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <a
+                href={link.href}
+                className="rounded-xl px-4 py-2 text-sm font-medium text-zinc-300 transition-all duration-300 hover:bg-blue-500/10 hover:text-blue-400"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Desktop Social */}
+        <div className="hidden md:flex items-center gap-3">
+          {socialLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full p-2 text-xl text-zinc-300 transition-all duration-300 hover:scale-110 hover:bg-blue-500/10 hover:text-blue-400"
+            >
+              {link.icon}
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile Button */}
+        <button
+          className="text-3xl text-white md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <HiOutlineX /> : <HiOutlineMenuAlt3 />}
+        </button>
+
+      </div>
+
+      {/* Mobile Menu */}
+
+      {isMenuOpen && (
+        <div className="mx-auto mt-3 max-w-7xl rounded-2xl border border-white/10 bg-[#0B1120]/95 p-6 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
+
+          <ul className="flex flex-col gap-4">
+
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-sm font-medium text-zinc-300 transition duration-300 hover:text-blue-500"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block rounded-xl px-4 py-3 text-zinc-300 transition-all duration-300 hover:bg-blue-500/10 hover:text-blue-400"
                 >
                   {link.name}
                 </a>
               </li>
             ))}
+
           </ul>
 
-          {/* Desktop Social */}
-          <div className="hidden md:flex items-center gap-5">
+          <div className="mt-6 flex gap-4">
+
             {socialLinks.map((link, index) => (
               <a
                 key={index}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xl text-zinc-300 transition duration-300 hover:text-blue-500 hover:scale-110"
+                className="rounded-full p-3 text-2xl text-zinc-300 transition-all duration-300 hover:bg-blue-500/10 hover:text-blue-400"
               >
                 {link.icon}
               </a>
             ))}
+
           </div>
 
-          {/* Mobile Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-3xl text-white"
-          >
-            {isMenuOpen ? <HiOutlineX /> : <HiOutlineMenuAlt3 />}
-          </button>
         </div>
+      )}
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-3 rounded-2xl border border-zinc-800 bg-[#0B1120]/95 backdrop-blur-xl p-6">
-
-            <ul className="flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-zinc-300 transition duration-300 hover:text-blue-500"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex items-center gap-5 mt-8">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-2xl text-zinc-300 transition duration-300 hover:text-blue-500"
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
-
-          </div>
-        )}
-      </div>
     </nav>
   );
 };

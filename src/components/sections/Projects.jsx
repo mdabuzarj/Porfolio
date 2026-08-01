@@ -1,137 +1,182 @@
 import React from "react";
+import { motion } from "framer-motion";
 import SpotlightCard from "../ui/SpotlightCard";
 import {
   BsGithub,
   BsArrowUpRight,
+  BsStars,
 } from "react-icons/bs";
 
 const projects = [
   {
     title: "FeedChain",
     description:
-      "A MERN-based platform that connects food donors with NGOs to reduce food waste through real-time donation management and tracking.",
+      "A MERN-based food donation platform connecting restaurants, donors and NGOs with real-time tracking and secure authentication.",
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900",
     tech: ["React", "Node.js", "Express", "MongoDB", "Supabase"],
-    github: "https://github.com/mdabuzarj",
+    github: "https://github.com/mdabuzarj/FeedChain",
     live: "#",
+    featured: true,
   },
   {
     title: "College Canteen Management",
     description:
-      "A full-stack canteen management system with authentication, menu management, role-based access, and online food ordering.",
+      "Full-stack web application for digital food ordering, menu management, authentication and role-based access.",
     image:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=800",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=900",
+    tech: ["React", "Express", "MongoDB", "Node.js"],
     github: "https://github.com/mdabuzarj",
     live: "#",
+    featured: false,
   },
   {
     title: "Java ATM System",
     description:
-      "A console-based banking application implementing object-oriented programming concepts with account management and transaction handling.",
+      "Console-based banking application demonstrating Object-Oriented Programming, transactions and account management.",
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800",
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900",
     tech: ["Java", "OOP"],
     github: "https://github.com/mdabuzarj",
     live: "#",
+    featured: false,
   },
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-28 bg-[#020617]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="projects"
+      className="relative overflow-hidden bg-[#020617] py-28"
+    >
+      {/* Background Glow */}
+
+      <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[180px]" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
 
         {/* Heading */}
 
-        <div className="text-center mb-20">
-
-          <p className="uppercase tracking-[4px] text-blue-400 font-semibold">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: .8 }}
+          className="mb-20 text-center"
+        >
+          <p className="uppercase tracking-[5px] text-blue-400 font-semibold">
             Featured Work
           </p>
 
-          <h2 className="text-5xl font-bold text-white mt-4">
+          <h2 className="mt-4 text-5xl md:text-6xl font-bold text-white">
             Projects
           </h2>
 
-          <p className="text-zinc-400 max-w-2xl mx-auto mt-6 leading-8">
-            Some of the projects I've built during internships,
-            hackathons, and personal learning.
+          <p className="mx-auto mt-6 max-w-3xl leading-8 text-zinc-400">
+            Projects built during internships, hackathons and personal
+            learning that demonstrate my passion for software development.
           </p>
-
-        </div>
+        </motion.div>
 
         {/* Cards */}
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 lg:grid-cols-3">
 
-          {projects.map((project) => (
+          {projects.map((project, index) => (
 
-            <SpotlightCard
-  key={project.title}
-  spotlightColor="rgba(37,99,235,0.35)"
-  className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md transition duration-300 hover:-translate-y-3 hover:border-blue-500"
->
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: .6,
+                delay: index * .15,
+              }}
+            >
 
-              {/* Image */}
+              <SpotlightCard
+                spotlightColor="rgba(37,99,235,.35)"
+                className="group overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-xl"
+              >
 
-              <img
-                src={project.image}
-                alt={project.title}
-                className="h-56 w-full object-cover"
-              />
+                {/* Image */}
 
-              {/* Content */}
+                <div className="relative overflow-hidden">
 
-              <div className="p-7">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-56 w-full object-cover transition duration-700 group-hover:scale-110"
+                  />
 
-                <h3 className="text-2xl font-bold text-white">
-                  {project.title}
-                </h3>
+                  {project.featured && (
+                    <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm text-white shadow-lg">
+                      <BsStars />
+                      Featured
+                    </div>
+                  )}
 
-                <p className="mt-4 text-zinc-400 leading-7">
-                  {project.description}
-                </p>
+                </div>
 
-                {/* Tech */}
+                {/* Content */}
 
-                <div className="flex flex-wrap gap-2 mt-6">
+                <div className="p-7">
 
-                  {project.tech.map((tech) => (
+                  <h3 className="text-2xl font-bold text-white">
+                    {project.title}
+                  </h3>
 
-                    <span
-                      key={tech}
-                      className="rounded-full bg-blue-500/10 border border-blue-500/20 px-3 py-1 text-sm text-blue-300"
+                  <p className="mt-5 leading-8 text-zinc-400">
+                    {project.description}
+                  </p>
+
+                  {/* Tech */}
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-sm text-blue-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+
+                  </div>
+
+                  {/* Buttons */}
+
+                  <div className="mt-8 flex gap-4">
+
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 rounded-xl border border-zinc-700 px-5 py-3 text-white transition hover:border-blue-500 hover:bg-blue-500/10"
                     >
-                      {tech}
-                    </span>
+                      <BsGithub />
+                      GitHub
+                    </a>
 
-                  ))}
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white transition hover:bg-blue-700"
+                    >
+                      Live Demo
+                      <BsArrowUpRight />
+                    </a>
 
-                </div>
-
-                {/* Links */}
-
-                <div className="mt-8 flex items-center justify-between">
-
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 text-zinc-300 hover:text-blue-400 transition"
-                  >
-                    <BsGithub />
-                    GitHub
-                  </a>
-
-                  
+                  </div>
 
                 </div>
 
-              </div>
+              </SpotlightCard>
 
-            </SpotlightCard>
+            </motion.div>
 
           ))}
 

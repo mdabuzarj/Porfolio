@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   BsBriefcaseFill,
   BsTrophyFill,
@@ -20,7 +21,7 @@ const journey = [
     title: "DevHouse'25 Finalist",
     company: "VIT Chennai",
     description:
-      "Built Avenger-Core, a FinTech solution, and secured a place among the Top 55 finalists out of 1200+ participating teams.",
+      "Built Avenger-Core, a FinTech solution, securing a place among the Top 55 finalists from 1200+ teams.",
     icon: <BsTrophyFill />,
   },
   {
@@ -28,7 +29,7 @@ const journey = [
     title: "Nexus Hackathon Finalist",
     company: "Annai Mira College",
     description:
-      "Developed FeedChain, a food donation platform connecting donors with NGOs, and finished among the Top 60 finalists out of 1200+ teams.",
+      "Developed FeedChain, a food donation platform connecting donors with NGOs and finished among the Top 60 finalists.",
     icon: <BsStars />,
   },
   {
@@ -36,7 +37,7 @@ const journey = [
     title: "Java Developer Intern",
     company: "Decode Labs",
     description:
-      "Worked on Java applications while improving object-oriented programming, problem-solving, and software development practices.",
+      "Built Java applications while strengthening object-oriented programming and software engineering skills.",
     icon: <BsBriefcaseFill />,
   },
   {
@@ -44,7 +45,7 @@ const journey = [
     title: "Software Development Engineer Intern",
     company: "Azure Tech Startup",
     description:
-      "Contributed to real-world MERN stack applications, backend APIs, and production-ready web solutions.",
+      "Worked on production-ready MERN applications, backend APIs and scalable software solutions.",
     icon: <BsBriefcaseFill />,
   },
   {
@@ -52,7 +53,7 @@ const journey = [
     title: "Tech Team Lead",
     company: "VisionX",
     description:
-      "Leading the technical team by mentoring members, organizing workshops, and building innovative student-driven projects.",
+      "Leading technical initiatives, mentoring members and organizing workshops while building innovative student projects.",
     icon: <BsStars />,
   },
 ];
@@ -61,58 +62,103 @@ const Journey = () => {
   return (
     <section
       id="experience"
-      className="py-28 bg-[#020617]"
+      className="relative overflow-hidden bg-[#020617] py-28"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      {/* Background Glow */}
 
-        <div className="text-center mb-20">
-          <p className="uppercase tracking-widest text-blue-400 font-semibold">
+      <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[180px]" />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
+
+        {/* Heading */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-20 text-center"
+        >
+          <p className="font-semibold uppercase tracking-[5px] text-blue-400">
             My Journey
           </p>
 
-          <h2 className="text-5xl font-bold text-white mt-4">
+          <h2 className="mt-4 text-5xl font-bold text-white md:text-6xl">
             Experience & Achievements
           </h2>
 
-          <p className="mt-6 text-zinc-400 max-w-2xl mx-auto leading-8">
-            My journey through internships, hackathons, leadership, and
-            continuous learning that shaped me into the developer I am today.
+          <p className="mx-auto mt-6 max-w-3xl leading-8 text-zinc-400">
+            Every internship, hackathon and leadership role has contributed
+            to my growth as a software developer.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="relative border-l border-zinc-700 ml-5">
+        {/* Timeline */}
+
+        <div className="relative ml-4 border-l border-blue-500/30">
 
           {journey.map((item, index) => (
-            <div
+
+            <motion.div
               key={index}
-              className="mb-16 ml-10 relative"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+              }}
+              className="relative mb-16 ml-10"
             >
 
-              <div className="absolute -left-[58px] flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg">
+              {/* Timeline Icon */}
+
+              <div className="absolute -left-[58px] flex h-12 w-12 items-center justify-center rounded-full border border-blue-500/30 bg-blue-600 text-xl text-white shadow-[0_0_25px_rgba(37,99,235,0.45)]">
+
                 {item.icon}
+
               </div>
 
-              <span className="text-sm text-blue-400 font-semibold tracking-wide">
+              {/* Year */}
+
+              <span className="rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1 text-sm font-semibold text-blue-300">
                 {item.year}
               </span>
 
-              <div className="mt-3 rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md p-6 hover:border-blue-500 transition duration-300">
+              {/* Card */}
+
+              <motion.div
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 250,
+                }}
+                className="group mt-5 overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/40 p-8 backdrop-blur-xl transition-all duration-300 hover:border-blue-500 hover:shadow-[0_20px_60px_rgba(37,99,235,0.25)]"
+              >
+
+                {/* Hover Line */}
+
+                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 group-hover:w-full" />
 
                 <h3 className="text-2xl font-bold text-white">
                   {item.title}
                 </h3>
 
-                <p className="text-blue-400 font-medium mt-2">
+                <p className="mt-2 font-semibold text-blue-400">
                   {item.company}
                 </p>
 
-                <p className="mt-4 leading-8 text-zinc-400">
+                <p className="mt-5 leading-8 text-zinc-400">
                   {item.description}
                 </p>
 
-              </div>
+              </motion.div>
 
-            </div>
+            </motion.div>
+
           ))}
 
         </div>

@@ -66,7 +66,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="text-5xl font-bold leading-tight text-white md:text-7xl"
+            className="text-5xl font-bold leading-[1.05] text-white md:text-7xl"
           >
             Building
             <span className="text-blue-500"> scalable </span>
@@ -77,31 +77,26 @@ const Hero = () => {
 
           {/* Subtitle */}
 
-          <motion.p
-            custom={0.4}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="mt-6 text-xl font-medium text-blue-400"
-          >
-            React • Java • MERN • Cloud
-          </motion.p>
+          <BlurText
+  text="React • Java • MERN • Cloud"
+  delay={150}
+  animateBy="words"
+  direction="top"
+  className="mt-6 text-xl font-medium text-blue-400"
+/>
 
-          {/* Description */}
 
-          <motion.p
-            custom={0.6}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="mt-6 max-w-xl leading-8 text-zinc-400"
-          >
-            I'm Mohammed Abuzar J, a Computer Science Engineering student
-            passionate about developing modern web applications, scalable
-            backend systems, and solving real-world problems through
-            technology. I enjoy building clean user experiences while
-            continuously learning new technologies.
-          </motion.p>
+{/* Description */}
+<motion.p
+  custom={0.6}
+  initial="hidden"
+  animate="visible"
+  variants={fadeUp}
+  className="mt-6 max-w-xl leading-8 text-zinc-400"
+>
+  I'm Mohammed Abuzar J, a Computer Science Engineering student
+  passionate about developing modern web applications, scalable
+</motion.p>
 
           {/* Buttons */}
 
@@ -113,12 +108,13 @@ const Hero = () => {
             className="mt-10 flex flex-wrap gap-5"
           >
             <a
-              href="#projects"
-              className="flex items-center gap-3 rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/30"
-            >
-              View Projects
-              <BsArrowRight />
-            </a>
+  href="#projects"
+  className="group flex items-center gap-3 rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-blue-700 hover:shadow-[0_10px_35px_rgba(37,99,235,0.45)]"
+>
+  View Projects
+
+  <BsArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+</a>
 
             <a
               href="#contact"
@@ -226,7 +222,7 @@ const Hero = () => {
             <img
               src={profile}
               alt="Mohammed Abuzar J"
-              className="relative z-10 w-[420px] rounded-3xl border border-zinc-800 shadow-2xl transition-all duration-500 hover:scale-105"
+              className="relative z-10 h-[600px] w-[390px] rounded-3xl border border-blue-500/20 object-cover object-top shadow-[0_20px_60px_rgba(37,99,235,0.35)] transition-all duration-500 hover:scale-105"
             />
           </motion.div>
 

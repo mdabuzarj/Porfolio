@@ -1,125 +1,180 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   BsEnvelopeFill,
   BsGithub,
   BsLinkedin,
   BsGeoAltFill,
+  BsArrowRight,
 } from "react-icons/bs";
+
+const contacts = [
+  {
+    icon: <BsEnvelopeFill />,
+    title: "Email",
+    value: "mohammed.abuzar.j54@gmail.com",
+    link: "mailto:mohammed.abuzar.j54@gmail.com",
+  },
+  {
+    icon: <BsGithub />,
+    title: "GitHub",
+    value: "github.com/mdabuzarj",
+    link: "https://github.com/mdabuzarj",
+  },
+  {
+    icon: <BsLinkedin />,
+    title: "LinkedIn",
+    value: "Connect with me",
+    link: "https://www.linkedin.com/in/md-abuzar-1892882a6/",
+  },
+  {
+    icon: <BsGeoAltFill />,
+    title: "Location",
+    value: "Tamil Nadu, India",
+    link: null,
+  },
+];
 
 const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-28 bg-[#020617]"
+      className="relative overflow-hidden bg-[#020617] py-28"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      {/* Background Glow */}
+
+      <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[180px]" />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
 
         {/* Heading */}
-        <div className="text-center mb-20">
 
-          <p className="uppercase tracking-[4px] text-blue-400 font-semibold">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-20 text-center"
+        >
+          <p className="font-semibold uppercase tracking-[5px] text-blue-400">
             Contact
           </p>
 
-          <h2 className="text-5xl font-bold text-white mt-4">
+          <h2 className="mt-4 text-5xl font-bold text-white md:text-6xl">
             Let's Work Together
           </h2>
 
-          <p className="max-w-2xl mx-auto mt-6 text-zinc-400 leading-8">
-            Whether you have an internship opportunity, a project idea, or just
-            want to connect, I'm always open to meaningful conversations.
+          <p className="mx-auto mt-6 max-w-3xl leading-8 text-zinc-400">
+            Whether you have an internship opportunity, collaboration,
+            freelance work or simply want to connect, I'd love to hear
+            from you.
           </p>
+        </motion.div>
 
-        </div>
+        {/* Card */}
 
-        {/* Contact Card */}
-        <div className="rounded-3xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md p-10">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid gap-12 rounded-3xl border border-zinc-800 bg-zinc-900/40 p-10 backdrop-blur-xl lg:grid-cols-2"
+        >
+          {/* Left */}
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <div>
 
-            {/* Left */}
-            <div>
+            <h3 className="mb-8 text-3xl font-bold text-white">
+              Get In Touch
+            </h3>
 
-              <h3 className="text-3xl font-bold text-white mb-8">
-                Get in Touch
-              </h3>
+            <div className="space-y-5">
 
-              <div className="space-y-6">
+              {contacts.map((item, index) => (
 
-                <div className="flex items-center gap-4">
-                  <BsEnvelopeFill className="text-blue-400 text-2xl" />
-                  <a
-                    href="mailto:mohammed.abuzar.j54@gmail.com"
-                    className="text-zinc-300 hover:text-blue-400 transition"
-                  >
-                    mohammed.abuzar.j54@gmail.com
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <BsGithub className="text-blue-400 text-2xl" />
-                  <a
-                    href="https://github.com/mdabuzarj"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-zinc-300 hover:text-blue-400 transition"
-                  >
-                    github.com/mdabuzarj
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <BsLinkedin className="text-blue-400 text-2xl" />
-                  <a
-                    href="https://www.linkedin.com/in/md-abuzar-1892882a6/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-zinc-300 hover:text-blue-400 transition"
-                  >
-                    LinkedIn Profile
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <BsGeoAltFill className="text-blue-400 text-2xl" />
-                  <span className="text-zinc-300">
-                    Tamil Nadu, India
-                  </span>
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* Right */}
-            <div className="flex flex-col justify-center">
-
-              <div className="rounded-2xl border border-blue-500/20 bg-blue-500/10 p-8">
-
-                <h4 className="text-2xl font-semibold text-white mb-4">
-                  Open to Opportunities 🚀
-                </h4>
-
-                <p className="text-zinc-300 leading-8">
-                  I'm currently seeking Software Development Internship and
-                  Full Stack Developer opportunities where I can contribute,
-                  grow, and work on impactful products.
-                </p>
-
-                <a
-                  href="mailto:mohammed.abuzar.j54@gmail.com"
-                  className="mt-8 inline-block rounded-xl bg-blue-600 px-6 py-3 text-white font-semibold transition hover:bg-blue-700"
+                <motion.div
+                  key={index}
+                  whileHover={{
+                    x: 8,
+                  }}
+                  className="group flex items-center gap-5 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 transition-all duration-300 hover:border-blue-500"
                 >
-                  Say Hello
-                </a>
 
-              </div>
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-500/10 text-2xl text-blue-400">
+                    {item.icon}
+                  </div>
+
+                  <div>
+
+                    <p className="text-sm text-zinc-500">
+                      {item.title}
+                    </p>
+
+                    {item.link ? (
+                      <a
+                        href={item.link}
+                        target={
+                          item.link.startsWith("http")
+                            ? "_blank"
+                            : undefined
+                        }
+                        rel="noreferrer"
+                        className="font-medium text-white transition hover:text-blue-400"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="font-medium text-white">
+                        {item.value}
+                      </p>
+                    )}
+
+                  </div>
+
+                </motion.div>
+
+              ))}
 
             </div>
 
           </div>
 
-        </div>
+          {/* Right */}
+
+          <motion.div
+            whileHover={{
+              scale: 1.02,
+            }}
+            className="rounded-3xl border border-blue-500/20 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-10"
+          >
+
+            <span className="inline-flex rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-sm text-blue-300">
+              🚀 Available for Internships
+            </span>
+
+            <h3 className="mt-8 text-3xl font-bold text-white">
+              Open to Opportunities
+            </h3>
+
+            <p className="mt-6 leading-8 text-zinc-300">
+              I'm actively looking for Software Development,
+              Backend Development and Full Stack Internship
+              opportunities where I can contribute to impactful
+              products while continuously learning.
+            </p>
+
+            <a
+              href="mailto:mohammed.abuzar.j54@gmail.com"
+              className="group mt-10 inline-flex items-center gap-3 rounded-xl bg-blue-600 px-7 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-[0_15px_35px_rgba(37,99,235,0.35)]"
+            >
+              Let's Connect
+
+              <BsArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+
+          </motion.div>
+
+        </motion.div>
 
       </div>
     </section>
