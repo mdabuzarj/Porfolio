@@ -25,16 +25,16 @@ const Hero = () => {
   return (
     <section
   id="hero"
-  className="relative min-h-screen flex items-center overflow-hidden bg-[#020617] pt-28"
+  className="relative flex min-h-screen items-center overflow-x-hidden bg-[#020617] pt-24 md:pt-28"
 >
   {/* Aurora Background */}
   <div className="absolute inset-0 -z-0">
     <Aurora
-      colorStops={["#2563eb", "#60a5fa", "#1d4ed8"]}
-      blend={0.45}
-      amplitude={1.1}
-      speed={0.8}
-    />
+  colorStops={["#2563eb", "#60a5fa", "#1d4ed8"]}
+  blend={0.18}
+  amplitude={0.35}
+  speed={0.18}
+  />
   </div>
 
   {/* Dark Overlay */}
@@ -204,7 +204,7 @@ const Hero = () => {
 
           {/* Glow */}
 
-          <div className="absolute h-[500px] w-[500px] rounded-full bg-blue-500/30 blur-[170px]" />
+          <div className="absolute h-[380px] w-[380px] rounded-full bg-blue-500/20 blur-[100px]" />
 
           {/* Floating Image */}
 
