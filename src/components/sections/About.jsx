@@ -65,11 +65,7 @@ const About = () => {
             </h3>
 
             <p className="mt-8 leading-8 text-zinc-400">
-              I'm Mohammed Abuzar J, a Computer Science Engineering student
-              passionate about creating scalable web applications,
-              efficient backend systems, and meaningful digital products.
-              I enjoy learning new technologies and applying them to solve
-              practical problems.
+              I'm Mohammed Abuzar J, a final-year B.E. Computer Science Engineering student (Graduating in 2027), passionate about building scalable web applications, scalable backend systems, and real-world software solutions. I enjoy solving complex problems through technology while continuously learning modern development practices.
             </p>
 
             <p className="mt-6 leading-8 text-zinc-400">
@@ -114,7 +110,7 @@ const About = () => {
                 <div className="flex items-center gap-3">
                   <BsMortarboard className="text-blue-400 text-2xl" />
                   <span className="text-zinc-300">
-                    B.E CSE (2027)
+                   B.E CSE • Graduating 2027
                   </span>
                 </div>
 

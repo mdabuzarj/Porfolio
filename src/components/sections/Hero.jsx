@@ -56,7 +56,7 @@ const Hero = () => {
             variants={fadeUp}
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-5 py-2 text-sm text-blue-300"
           >
-            🚀 Available for Software Development Internships
+            🎓 Final-Year CSE Student • Available for SDE Internships & Full-Time Opportunities
           </motion.div>
 
           {/* Heading */}

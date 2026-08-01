@@ -157,10 +157,7 @@ const Contact = () => {
             </h3>
 
             <p className="mt-6 leading-8 text-zinc-300">
-              I'm actively looking for Software Development,
-              Backend Development and Full Stack Internship
-              opportunities where I can contribute to impactful
-              products while continuously learning.
+              I'm actively seeking Software Development Engineer (SDE), Full Stack Developer, and Backend Developer internships and entry-level opportunities where I can contribute, grow, and build impactful products.
             </p>
 
             <a
