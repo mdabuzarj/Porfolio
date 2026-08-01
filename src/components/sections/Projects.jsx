@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import SpotlightCard from "../ui/SpotlightCard";
 import {
   BsGithub,
-  BsArrowUpRight,
   BsStars,
 } from "react-icons/bs";
 
@@ -16,7 +15,6 @@ const projects = [
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900",
     tech: ["React", "Node.js", "Express", "MongoDB", "Supabase"],
     github: "https://github.com/mdabuzarj/FeedChain",
-    live: "#",
     featured: true,
   },
   {
@@ -27,7 +25,6 @@ const projects = [
       "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=900",
     tech: ["React", "Express", "MongoDB", "Node.js"],
     github: "https://github.com/mdabuzarj",
-    live: "#",
     featured: false,
   },
   {
@@ -38,7 +35,6 @@ const projects = [
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900",
     tech: ["Java", "OOP"],
     github: "https://github.com/mdabuzarj",
-    live: "#",
     featured: false,
   },
 ];
@@ -61,7 +57,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: .8 }}
+          transition={{ duration: 0.8 }}
           className="mb-20 text-center"
         >
           <p className="uppercase tracking-[5px] text-blue-400 font-semibold">
@@ -90,11 +86,10 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: .6,
-                delay: index * .15,
+                duration: 0.6,
+                delay: index * 0.15,
               }}
             >
-
               <SpotlightCard
                 spotlightColor="rgba(37,99,235,.35)"
                 className="group overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-xl"
@@ -131,7 +126,7 @@ const Projects = () => {
                     {project.description}
                   </p>
 
-                  {/* Tech */}
+                  {/* Tech Stack */}
 
                   <div className="mt-6 flex flex-wrap gap-2">
 
@@ -146,28 +141,18 @@ const Projects = () => {
 
                   </div>
 
-                  {/* Buttons */}
+                  {/* GitHub Button */}
 
-                  <div className="mt-8 flex gap-4">
+                  <div className="mt-8">
 
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 rounded-xl border border-zinc-700 px-5 py-3 text-white transition hover:border-blue-500 hover:bg-blue-500/10"
+                      className="inline-flex items-center gap-2 rounded-xl border border-zinc-700 px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-500/10 hover:shadow-[0_10px_25px_rgba(37,99,235,0.25)]"
                     >
                       <BsGithub />
-                      GitHub
-                    </a>
-
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white transition hover:bg-blue-700"
-                    >
-                      Live Demo
-                      <BsArrowUpRight />
+                      View Source Code
                     </a>
 
                   </div>
