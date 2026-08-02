@@ -28,13 +28,9 @@ const Hero = () => {
   className="relative flex min-h-screen items-center overflow-x-hidden bg-[#020617] pt-24 md:pt-28"
 >
  {/* Hero Background */}
-<div className="absolute inset-0 overflow-hidden">
-  <div className="absolute -top-40 left-1/2 h-[650px] w-[650px] -translate-x-1/2 rounded-full bg-blue-600/15 blur-[120px]" />
+<div className="absolute inset-0 bg-gradient-to-br from-[#020617] via-[#0f172a] to-[#020617]" />
 
-  <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-[120px]" />
-
-  <div className="absolute top-40 right-0 h-[350px] w-[350px] rounded-full bg-indigo-500/10 blur-[120px]" />
-</div>
+<div className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-[80px]" />
 
   {/* Dark Overlay */}
   <div className="absolute inset-0 z-10 bg-[#020617]/40" />
