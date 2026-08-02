@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
 import profile from "../../assets/profile.jpg";
-import Aurora from "../ui/Aurora";
+
 import BlurText from "../ui/BlurText";
 
 const fadeUp = {
@@ -27,15 +27,14 @@ const Hero = () => {
   id="hero"
   className="relative flex min-h-screen items-center overflow-x-hidden bg-[#020617] pt-24 md:pt-28"
 >
-  {/* Aurora Background */}
-  <div className="absolute inset-0 -z-0">
-    <Aurora
-  colorStops={["#2563eb", "#60a5fa", "#1d4ed8"]}
-  blend={0.18}
-  amplitude={0.35}
-  speed={0.18}
-  />
-  </div>
+ {/* Hero Background */}
+<div className="absolute inset-0 overflow-hidden">
+  <div className="absolute -top-40 left-1/2 h-[650px] w-[650px] -translate-x-1/2 rounded-full bg-blue-600/15 blur-[120px]" />
+
+  <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-[120px]" />
+
+  <div className="absolute top-40 right-0 h-[350px] w-[350px] rounded-full bg-indigo-500/10 blur-[120px]" />
+</div>
 
   {/* Dark Overlay */}
   <div className="absolute inset-0 z-10 bg-[#020617]/40" />
